@@ -110,7 +110,7 @@
         {
             "nome": "Sistema de Doação de Sangue",
             "descricao": "Uma aplicação Web para gerenciar doações de sangue, feita em Python/Django, usando Materialize/CSS para estilização. Projeto feito na matéria de DAW I.",
-            "url": "https://github.com/luiscgomes1/-DAW1-Projeto-Python-Djang"
+            "url": "https://github.com/luiscgomes1/-DAW1-Projeto-Python-Django"
         },
         {
             "nome": "Café",
