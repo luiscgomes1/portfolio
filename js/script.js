@@ -2,10 +2,10 @@ async function carregarDadosPerfil() {
     try {
         const resposta = await fetch('data/dados-perfil.json');
         const dados = await resposta.json();
-        
+
         const elementoNome = document.getElementById('nome');
         await digitarTexto(elementoNome, dados.nome);
-        
+
         document.getElementById('titulo').textContent = dados.titulo;
         document.getElementById('bio').textContent = dados.bio;
         document.getElementById('foto-perfil').src = dados.foto;
@@ -13,7 +13,7 @@ async function carregarDadosPerfil() {
         // Social Icons for main bio section
         const linksSociais = document.getElementById('links-sociais');
         const linksSociaisContato = document.getElementById('links-sociais-contato');
-        
+
         // Limpar links existentes
         linksSociais.innerHTML = '';
         linksSociaisContato.innerHTML = '';
@@ -39,7 +39,7 @@ async function carregarDadosPerfil() {
                 <i class="bi bi-${social.icone} me-2"></i>
                 <span class="social-platform">${social.nome}</span>
             `;
-            
+
             linksSociais.appendChild(a.cloneNode(true));
             linksSociaisContato.appendChild(a);
         });
@@ -48,32 +48,33 @@ async function carregarDadosPerfil() {
         const emailContato = document.querySelector('#contato .col-md-6');
         const emailSocial = dados.linksSociais.find(s => s.nome.toLowerCase() === 'email');
         const whatsappSocial = dados.linksSociais.find(s => s.nome.toLowerCase() === 'whatsapp');
-        
+
         emailContato.innerHTML = `
             <ul class="list-unstyled">
             <li><i class="bi bi-${emailSocial.icone} me-2"></i>Email: ${emailSocial.url}</li>
             <li><i class="bi bi-${whatsappSocial.icone} me-2"></i>WhatsApp: ${whatsappSocial.url.replace(/(\d{2})(\d{2})(\d{1})(\d{4})(\d{4})/, '($1) $2 $3 $4-$5')}</li>
             </ul>
+            <div class="contato-separator d-none d-md-block"></div>
         `;
 
         const listaLinguagens = document.getElementById('lista-linguagens');
         dados.linguagens.forEach(linguagem => {
             let nivelWidth = '33%';
             let nivelClass = 'nivel-basico';
-            
-            switch(linguagem.nivel.toLowerCase()) {
-            case 'básico':
-            nivelWidth = '33%';
-            nivelClass = 'nivel-basico';
-            break;
-            case 'médio':
-            nivelWidth = '66%';
-            nivelClass = 'nivel-medio';
-            break;
-            case 'avançado':
-            nivelWidth = '100%';
-            nivelClass = 'nivel-avancado';
-            break;
+
+            switch (linguagem.nivel.toLowerCase()) {
+                case 'básico':
+                    nivelWidth = '33%';
+                    nivelClass = 'nivel-basico';
+                    break;
+                case 'médio':
+                    nivelWidth = '66%';
+                    nivelClass = 'nivel-medio';
+                    break;
+                case 'avançado':
+                    nivelWidth = '100%';
+                    nivelClass = 'nivel-avancado';
+                    break;
             }
 
             const elementoLinguagem = document.createElement('div');
@@ -98,27 +99,39 @@ async function carregarDadosPerfil() {
             listaLinguagens.appendChild(elementoLinguagem);
         });
 
-        const listaExperiencias = document.getElementById('lista-experiencias');
-        dados.experiencias.forEach(experiencia => {
-            const elementoExperiencia = document.createElement('div');
-            elementoExperiencia.className = 'col fade-in';
-            elementoExperiencia.innerHTML = `
-                <div class="card experiencia-card">
-                    <div class="card-body">
-                        <h5 class="card-title">${experiencia.cargo}</h5>
-                        <h6 class="experiencia-empresa">${experiencia.empresa}</h6>
-                        <p class="experiencia-periodo"><i class="bi bi-calendar"></i> ${experiencia.periodo}</p>
-                        <p class="card-text">${experiencia.descricao}</p>
-                    </div>
-                </div>
-            `;
-            listaExperiencias.appendChild(elementoExperiencia);
-        });
+        function converterData(dataStr) {
+            const [dia, mes, ano] = dataStr.split('/');
+            return new Date(ano, mes - 1, dia);
+        }
 
-        const listaProjetos = 
-document.getElementById('lista-projetos');
+
+        const listaExperiencias = document.getElementById('lista-experiencias');
+        dados.experiencias
+            .sort((a, b) => {
+                const dataFinalA = converterData(a.periodo.split(' - ')[1]);
+                const dataFinalB = converterData(b.periodo.split(' - ')[1]);
+                return dataFinalB - dataFinalA;
+            })
+            .forEach(experiencia => {
+                const elementoExperiencia = document.createElement('div');
+                elementoExperiencia.className = 'col fade-in';  
+                elementoExperiencia.innerHTML = `
+            <div class="card experiencia-card">
+            <div class="card-body">
+                <h5 class="card-title">${experiencia.cargo}</h5>
+                <h6 class="experiencia-empresa">${experiencia.empresa}</h6>
+                <p class="experiencia-periodo"><i class="bi bi-calendar"></i> ${experiencia.periodo}</p>
+                <p class="card-text">${experiencia.descricao}</p>
+            </div>
+            </div>
+            `;
+                listaExperiencias.appendChild(elementoExperiencia);
+            });
+
+        const listaProjetos =
+            document.getElementById('lista-projetos');
         const indicadoresProjetos = document.getElementById('indicadores-projetos');
-        
+
         dados.projetos.forEach((projeto, index) => {
             // Criar indicador
             const indicador = document.createElement('button');
@@ -155,7 +168,7 @@ document.getElementById('lista-projetos');
 async function digitarTexto(elemento, texto) {
     let index = 0;
     elemento.textContent = '';
-    
+
     while (index < texto.length) {
         elemento.textContent += texto.charAt(index);
         index++;

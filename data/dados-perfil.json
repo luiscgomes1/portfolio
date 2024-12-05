@@ -55,43 +55,72 @@
             "nome": "TypeScript",
             "nivel": "Básico",
             "icone": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+        },
+        {
+            "nome": "Angular",
+            "nivel": "Básico",
+            "icone": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg"
+        },
+        {
+            "nome": "Django",
+            "nivel": "Básico",
+            "icone": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg"
+        },
+        {
+            "nome": "Node.js",
+            "nivel": "Básico",
+            "icone": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+        },
+        {
+            "nome": "PHP",
+            "nivel": "Básico",
+            "icone": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg"
+        },
+        {
+            "nome": "HTML",
+            "nivel": "Básico",
+            "icone": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+        },
+        {
+            "nome": "CSS",
+            "nivel": "Básico",
+            "icone": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
         }
     ],
     "experiencias": [
         {
-            "cargo": "Desenvolvedor Full Stack Senior",
-            "empresa": "Empresa Tecnologia Ltda",
-            "periodo": "Jan 2021 - Presente",
-            "descricao": "Desenvolvimento de aplicações web escaláveis, liderança de equipe técnica e implementação de arquitetura de microsserviços."
+            "cargo": "Estagiário",
+            "empresa": "Prefeitura Municipal de Pirajuba",
+            "periodo": "22/11/2017 - 31/01/2019",
+            "descricao": "Gerenciamento e manutenção do sistema de informações da UBS (Unidade Básica de Saúde). Inserção e atualização diária de dados das ACS (Agentes Comunitárias de Saúde) no sistema, garantindo a correta alimentação das informações. Controle e supervisão do sistema móvel utilizado nas visitas domiciliares, assegurando a eficiência no registro de informações. Elaboração de planilhas para consulta e controle de dados, otimizando o fluxo de informações e facilitando a tomada de decisões. Execução de outras tarefas correlatas à função, com foco no bom funcionamento das operações da UBS."
         },
         {
-            "cargo": "Desenvolvedor Front-end Pleno",
-            "empresa": "Agência Digital S.A.",
-            "periodo": "Mar 2019 - Dez 2020",
-            "descricao": "Desenvolvimento de interfaces responsivas, implementação de PWAs e otimização de performance em aplicações React."
-        },
-        {
-            "cargo": "Desenvolvedor Web Júnior",
-            "empresa": "Startup Inovadora",
-            "periodo": "Jun 2018 - Fev 2019",
-            "descricao": "Manutenção de aplicações web, desenvolvimento de features e correção de bugs."
+            "cargo": "Auxiliar Administrativo III",
+            "empresa": "Prefeitura Municipal de Pirajuba",
+            "periodo": "06/06/2019 - 31/12/2019",
+            "descricao": "Suporte na manutenção e controle dos sistemas da Secretaria de Educação, garantindo o funcionamento adequado das plataformas. Inserção de dados, elaboração de relatórios e acompanhamento das ações da secretaria, promovendo a organização e a transparência nas operações. Atendimento ao público e gestão de compras com fornecedores, assegurando o fluxo eficiente de materiais e serviços. Prestação de suporte técnico e manutenção aos computadores de diversos setores da prefeitura, incluindo escolas, secretarias, bibliotecas e Unidades de Saúde, realizando desde a troca de peças até a configuração de sistemas e impressoras. Assistência na manutenção do servidor, realizando atualizações de sistemas e atuando como ponto de contato direto com os administradores das plataformas. Atendimento a demandas de suporte técnico em todos os setores, garantindo a funcionalidade de equipamentos e sistemas."
         }
     ],
     "projetos": [
         {
-            "nome": "Plataforma de E-commerce",
-            "descricao": "Uma solução completa de e-commerce construída com React e Node.js, incluindo gestão de produtos, carrinho de compras e integração com gateway de pagamento.",
-            "url": "https://github.com/seuusuario/plataforma-ecommerce"
+            "nome": "Portfolio Pessoal/Profissional",
+            "descricao": "Meu portfólio pessoal/profissional feito com HTML, CSS e JavaScript, usando Bootstrap/CSS para estilização. Projeto feito na matéria de TIAW.",
+            "url": "https://github.com/luiscgomes1/ProjetoPortfolioTIAW/"
         },
         {
-            "nome": "Aplicativo de Gerenciamento de Tarefas",
-            "descricao": "Um aplicativo móvel React Native para gerenciar tarefas e projetos, com funcionalidades de categorização, lembretes e compartilhamento em equipe.",
-            "url": "https://github.com/seuusuario/app-gerenciamento-tarefas"
+            "nome": "Sistema de Doação de Sangue",
+            "descricao": "Uma aplicação Web para gerenciar doações de sangue, feita em Python/Django, usando Materialize/CSS para estilização. Projeto feito na matéria de DAW I.",
+            "url": "https://github.com/luiscgomes1/-DAW1-Projeto-Python-Djang"
         },
         {
-            "nome": "Dashboard de Visualização de Dados",
-            "descricao": "Um painel interativo construído com D3.js e React para visualização de dados em tempo real, com gráficos personalizáveis e filtros avançados.",
-            "url": "https://github.com/seuusuario/dashboard-visualizacao-dados"
+            "nome": "Café",
+            "descricao": "Aplicação mobile para gerenciamento e venda de cafés, feita usando Kotlin. Projeto feito na matéria de PDM.",
+            "url": "https://github.com/luiscgomes1/TrabalhoFinalPDMCafe"
+        },
+        {
+            "nome": "HostXChange",
+            "descricao": "Uma aplicação web para a disciplina de Laboratório de Engenharia de Software, com o Professor Mauro Borges, projeto com o intuito de ser um site para gerenciar intercâmbios, sendo serviços em troca de hospedagem e etc. Aplicação feita usando Angular 18, Node.js, Express e MySQL, além de Docker.",
+            "url": "https://github.com/luiscgomes1/HostXchange"
         }
     ]
 }

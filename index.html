@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
 </head>
+
 <body class="bg-dark text-white">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
@@ -38,11 +40,13 @@
         </div>
     </nav>
 
-    <header class="py-5" id="inicio">
+    <!-- Modifique o header para ser uma section -->
+    <section class="py-5" id="inicio">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-4">
-                    <img src="https://via.placeholder.com/loading" alt="Luis" class="img-fluid rounded-circle" id="foto-perfil">
+                    <img src="https://via.placeholder.com/loading" alt="Luis" class="img-fluid rounded-circle"
+                        id="foto-perfil">
                 </div>
                 <div class="col-md-8">
                     <h1 id="nome" class="display-4 mb-3"></h1>
@@ -52,7 +56,7 @@
                 </div>
             </div>
         </div>
-    </header>
+    </section>
 
     <main class="py-5">
         <div class="section-divider"></div>
@@ -78,22 +82,26 @@
                 <div id="carrossel-projetos" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner" id="lista-projetos"></div>
                     <div class="carousel-indicators" id="indicadores-projetos"></div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carrossel-projetos" data-bs-slide="prev">
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carrossel-projetos"
+                        data-bs-slide="prev">
                         <span class="carousel-control-prev-icon"></span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carrossel-projetos" data-bs-slide="next">
+                    <button class="carousel-control-next" type="button" data-bs-target="#carrossel-projetos"
+                        data-bs-slide="next">
                         <span class="carousel-control-next-icon"></span>
                     </button>
                 </div>
             </div>
         </section>
-        
+
         <div class="section-divider"></div>
+        <!-- Modifique a seção de contato -->
         <section id="contato" class="mb-5 py-5">
             <div class="container">
                 <h2 class="mb-4"><i class="bi bi-envelope"></i> Contato</h2>
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-6 position-relative">
+                        <!-- Conteúdo do contato -->
                     </div>
                     <div class="col-md-6">
                         <div id="links-sociais-contato"></div>
@@ -112,5 +120,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/script.js" type="module"></script>
 </body>
-</html>
 
+</html>
