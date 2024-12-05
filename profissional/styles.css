@@ -1,0 +1,264 @@
+body {
+    background-color: #121212;
+    color: #ffffff;
+    padding-top: 76px;
+}
+
+h1, h2 {
+    color: #9c27b0;
+}
+
+.card {
+    background-color: #1e1e1e;
+    border: none;
+    transition: transform 0.3s ease-in-out;
+    height: 100%;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-body {
+    color: #ffffff;
+}
+
+.btn-primary {
+    background-color: #9c27b0;
+    border-color: #9c27b0;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #7b1fa2;
+    border-color: #7b1fa2;
+    transform: scale(1.05);
+}
+
+#foto-perfil {
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    border: 5px solid #9c27b0;
+    object-fit: cover;
+    object-position: center;
+}
+
+.link-social {
+    color: #9c27b0;
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.link-social:hover {
+    color: #7b1fa2;
+    transform: scale(1.2);
+}
+
+.navbar {
+    background-color: rgba(18, 18, 18, 0.9) !important;
+    backdrop-filter: blur(10px);
+}
+
+.navbar-brand, .nav-link {
+    color: #ffffff !important;
+    transition: color 0.3s ease;
+}
+
+.navbar-brand:hover, .nav-link:hover {
+    color: #9c27b0 !important;
+}
+
+.section-highlight {
+    border-left: 4px solid #9c27b0;
+    padding-left: 15px;
+}
+
+#nome {
+    display: inline-block;
+}
+
+.cursor {
+    display: inline-block;
+    width: 3px;
+    height: 50px;
+    background-color: #9c27b0;
+    margin-left: 5px;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Estilos do carrossel */
+.carousel {
+    background-color: #1e1e1e;
+    border-radius: 1rem;
+    padding: 2rem;
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+.carousel-item {
+    padding: 1rem;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%;
+    opacity: 0.8;
+}
+
+.carousel-indicators {
+    bottom: -2rem;
+}
+
+.carousel-indicators button {
+    background-color: #9c27b0;
+    height: 3px;
+}
+
+/* Estilos das linguagens */
+.linguagem-card {
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.linguagem-icon {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 1rem;
+}
+
+.progress-bar-container {
+    background-color: #e9ecef;
+    height: 25px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.progress-bar {
+    height: 100%;
+    background-image: linear-gradient(45deg, 
+        rgba(255,255,255,.15) 25%, 
+        transparent 25%, 
+        transparent 50%, 
+        rgba(255,255,255,.15) 50%, 
+        rgba(255,255,255,.15) 75%, 
+        transparent 75%, 
+        transparent);
+    background-size: 1rem 1rem;
+    transition: width 1s ease-in-out;
+}
+
+.nivel-basico { 
+    background-color: #4caf50;
+    width: 33%; 
+    font-size: 0.8rem;
+}
+
+.nivel-medio { 
+    background-color: #ffc107;
+    width: 66%; 
+    font-size: 0.9rem;
+}
+
+.nivel-avancado { 
+    background-color: #f44336;
+    width: 100%; 
+    font-size: 1rem;
+}
+
+.nivel-texto {
+    font-size: 0.9rem;
+    color: #ffffff;
+    position: center;
+}
+
+/* Estilos da experiência */
+.experiencia-periodo {
+    color: #9c27b0;
+    font-weight: 500;
+}
+
+.experiencia-empresa {
+    color: #ffffff;
+    opacity: 0.8;
+}
+
+.experiencia-card {
+    height: 100%;
+}
+
+/* Separador visual entre seções */
+.section-divider {
+    height: 2px;
+    background: linear-gradient(to right, transparent, #9c27b0, transparent);
+    margin: 3rem 0;
+}
+
+/* Estilos para a seção de contato */
+#contato a {
+    color: #9c27b0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+#contato a:hover {
+    color: #7b1fa2;
+}
+
+#links-sociais-contato {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#links-sociais-contato .link-social {
+    margin-right: 1rem;
+}
+
+/* Social media icons styles */
+.social-icons {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.social-icon {
+    color: #9c27b0;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.social-icon:hover {
+    color: #7b1fa2;
+    transform: scale(1.2);
+}
+
+.social-icon span {
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+}

@@ -1,0 +1,97 @@
+{
+    "nome": "Luis Alberto Carvalho Gomes",
+    "titulo": "Estudante de Análise e Desenvolvimento de Sistemas - IFTM Uberaba Parque Tecnológico",
+    "bio": "Estudante, apreciador da tecnologia e, em como a programação pode mudar o mundo. Atualmente, estou focado em concluir a faculdade e melhorar o meu aprendizado.",
+    "foto": "a.jpeg",
+    "linksSociais": [
+        {
+            "nome": "GitHub",
+            "url": "https://github.com/luiscgomes1",
+            "icone": "github"
+        },
+        {
+            "nome": "LinkedIn",
+            "url": "https://linkedin.com/in/luis-cgomes",
+            "icone": "linkedin"
+        },
+        {
+            "nome": "Instagram",
+            "url": "https://instagram.com/luis.cgomes",
+            "icone": "instagram"
+        },
+        {
+            "nome": "Twitter",
+            "url": "https://twitter.com/luiscgomes1",
+            "icone": "twitter"
+        },
+        {
+            "nome": "WhatsApp",
+            "url": "+5534999933195",
+            "icone": "whatsapp"
+        },
+        {
+            "nome": "Email",
+            "url": "luis.gomes@estudante.iftm.edu.br",
+            "icone": "envelope-fill"
+        }
+    ],
+    "linguagens": [
+        {
+            "nome": "JavaScript",
+            "nivel": "Básico",
+            "icone": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+        },
+        {
+            "nome": "Python",
+            "nivel": "Básico",
+            "icone": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+        },
+        {
+            "nome": "Java",
+            "nivel": "Médio",
+            "icone": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
+        },
+        {
+            "nome": "TypeScript",
+            "nivel": "Básico",
+            "icone": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+        }
+    ],
+    "experiencias": [
+        {
+            "cargo": "Desenvolvedor Full Stack Senior",
+            "empresa": "Empresa Tecnologia Ltda",
+            "periodo": "Jan 2021 - Presente",
+            "descricao": "Desenvolvimento de aplicações web escaláveis, liderança de equipe técnica e implementação de arquitetura de microsserviços."
+        },
+        {
+            "cargo": "Desenvolvedor Front-end Pleno",
+            "empresa": "Agência Digital S.A.",
+            "periodo": "Mar 2019 - Dez 2020",
+            "descricao": "Desenvolvimento de interfaces responsivas, implementação de PWAs e otimização de performance em aplicações React."
+        },
+        {
+            "cargo": "Desenvolvedor Web Júnior",
+            "empresa": "Startup Inovadora",
+            "periodo": "Jun 2018 - Fev 2019",
+            "descricao": "Manutenção de aplicações web, desenvolvimento de features e correção de bugs."
+        }
+    ],
+    "projetos": [
+        {
+            "nome": "Plataforma de E-commerce",
+            "descricao": "Uma solução completa de e-commerce construída com React e Node.js, incluindo gestão de produtos, carrinho de compras e integração com gateway de pagamento.",
+            "url": "https://github.com/seuusuario/plataforma-ecommerce"
+        },
+        {
+            "nome": "Aplicativo de Gerenciamento de Tarefas",
+            "descricao": "Um aplicativo móvel React Native para gerenciar tarefas e projetos, com funcionalidades de categorização, lembretes e compartilhamento em equipe.",
+            "url": "https://github.com/seuusuario/app-gerenciamento-tarefas"
+        },
+        {
+            "nome": "Dashboard de Visualização de Dados",
+            "descricao": "Um painel interativo construído com D3.js e React para visualização de dados em tempo real, com gráficos personalizáveis e filtros avançados.",
+            "url": "https://github.com/seuusuario/dashboard-visualizacao-dados"
+        }
+    ]
+}
