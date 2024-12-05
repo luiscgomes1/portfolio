@@ -1,6 +1,6 @@
 async function carregarDadosPerfil() {
     try {
-        const resposta = await fetch('dados-perfil.json');
+        const resposta = await fetch('data/dados-perfil.json');
         const dados = await resposta.json();
         
         const elementoNome = document.getElementById('nome');
