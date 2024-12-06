@@ -72,43 +72,47 @@ function preencherLinksSociais(linksSociais) {
 
 function preencherLinguagens(linguagens) {
     const listaLinguagens = document.querySelector('#lista-linguagens');
+    listaLinguagens.innerHTML = '';
 
     linguagens.forEach(linguagem => {
-        let nivelWidth = '33%';
-        let nivelClass = 'nivel-basico';
+        let nivelWidth;
+        let nivelClass;
 
         switch (linguagem.nivel.toLowerCase()) {
             case 'básico':
-                nivelWidth = '33%';
+                nivelWidth = 33;
                 nivelClass = 'nivel-basico';
                 break;
-            case 'intermediário':
-                nivelWidth = '66%';
-                nivelClass = 'nivel-intermediario';
+            case 'médio':
+                nivelWidth = 66;
+                nivelClass = 'nivel-medio';
                 break;
             case 'avançado':
-                nivelWidth = '100%';
+                nivelWidth = 100;
                 nivelClass = 'nivel-avancado';
                 break;
+            default:
+                nivelWidth = 0;
+                nivelClass = '';
         }
 
         const elementoLinguagem = document.createElement('div');
         elementoLinguagem.className = 'col-md-6 mb-4 fade-in';
         elementoLinguagem.innerHTML = `
             <div class="card linguagem-card">
-            <div class="card-body">
-                <img src="${linguagem.icone}" alt="${linguagem.nome}" class="linguagem-icon">
-                <h5 class="card-title mb-3">${linguagem.nome}</h5>
-                <div class="progress">
-                <div class="progress-bar ${nivelClass}" role="progressbar" 
-                    style="width: ${nivelWidth};" 
-                    aria-valuenow="${nivelWidth}" aria-valuemin="0" aria-valuemax="100">
+                <div class="card-body">
+                    <img src="${linguagem.icone}" alt="${linguagem.nome}" class="linguagem-icon">
+                    <h5 class="card-title mb-3">${linguagem.nome}</h5>
+                    <div class="progress">
+                        <div class="progress-bar ${nivelClass}" role="progressbar" 
+                            style="width: ${nivelWidth}%;" 
+                            aria-valuenow="${nivelWidth}" aria-valuemin="0" aria-valuemax="100">
+                        </div>
+                    </div>
+                    <small class="nivel-texto mt-3 d-block">
+                        Conhecimento ${linguagem.nivel}
+                    </small>
                 </div>
-                </div>
-                <small class="nivel-texto mt-3 d-block">
-                Conhecimento ${linguagem.nivel}
-                </small>
-            </div>
             </div>
             `;
         listaLinguagens.appendChild(elementoLinguagem);
