@@ -3,83 +3,98 @@ async function carregarDadosPerfil() {
         const resposta = await fetch('data/dados-perfil.json');
         const dados = await resposta.json();
 
-        const elementoNome = document.getElementById('nome');
-        await digitarTexto(elementoNome, dados.nome);
+        preencherInformacoesPessoais(dados);
+        preencherLinksSociais(dados.linksSociais);
+        preencherLinguagens(dados.linguagens);
+        preencherExperiencias(dados.experiencias);
+        preencherProjetos(dados.projetos);
+        iniciarAnimacoes();
 
-        document.getElementById('titulo').textContent = dados.titulo;
-        document.getElementById('bio').textContent = dados.bio;
-        document.getElementById('foto-perfil').src = dados.foto;
+    } catch (erro) {
+        console.error('Erro ao carregar dados do perfil:', erro);
+    }
+}
 
-        // Social Icons for main bio section
-        const linksSociais = document.getElementById('links-sociais');
-        const linksSociaisContato = document.getElementById('links-sociais-contato');
+async function preencherInformacoesPessoais(dados) {
+    const nome = document.querySelector('#nome');
+    const descricao = document.querySelector('#bio');
+    const foto = document.querySelector('#foto-perfil');
 
-        // Limpar links existentes
-        linksSociais.innerHTML = '';
-        linksSociaisContato.innerHTML = '';
+    await digitarTexto(nome, dados.nome);
+    descricao.textContent = dados.descricao;
+    foto.src = dados.foto;
 
-        // Criar links sociais
-        dados.linksSociais.forEach(social => {
-            let finalUrl = social.url;
-            switch (social.nome.toLowerCase()) {
-                case 'whatsapp':
-                    finalUrl = `https://wa.me/${social.url}`;
-                    break;
-                case 'email':
-                    finalUrl = `mailto:${social.url}`;
-                    break;
-            }
+}
 
-            const a = document.createElement('a');
-            a.href = finalUrl;
-            a.className = 'social-icon d-inline-flex align-items-center me-3 mb-2';
-            a.target = '_blank';
-            a.rel = 'noopener noreferrer';
-            a.innerHTML = `
-                <i class="bi bi-${social.icone} me-2"></i>
-                <span class="social-platform">${social.nome}</span>
-            `;
+function preencherLinksSociais(linksSociais) {
+    const socialLinks = document.querySelector('#links-sociais');
+    const linksSociaisContato = document.querySelector('#links-sociais-contato');
 
-            linksSociais.appendChild(a.cloneNode(true));
-            linksSociaisContato.appendChild(a);
-        });
+    socialLinks.innerHTML = '';
+    linksSociaisContato.innerHTML = '';
 
-        // Atualizar seção de contato
-        const emailContato = document.querySelector('#contato .col-md-6');
-        const emailSocial = dados.linksSociais.find(s => s.nome.toLowerCase() === 'email');
-        const whatsappSocial = dados.linksSociais.find(s => s.nome.toLowerCase() === 'whatsapp');
+    linksSociais.forEach(social => {
+        let finalUrl = social.url;
+        switch (social.nome.toLowerCase()) {
+            case 'whatsapp':
+                finalUrl = `https://wa.me/${social.url}`;
+                break;
+            case 'email':
+                finalUrl = `mailto:${social.url}`;
+                break;
+        }
 
-        emailContato.innerHTML = `
+        const a = document.createElement('a');
+        a.href = finalUrl;
+        a.className = 'social-icon d-inline-flex align-items-center me-3 mb-2';
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        a.innerHTML = `
+            <i class="bi bi-${social.icone} me-2"></i>
+            <span class="social-platform">${social.nome}</span>
+        `;
+        socialLinks.appendChild(a.cloneNode(true));
+        linksSociaisContato.appendChild(a);
+    });
+
+    const emailContato = document.querySelector('#contato .col-md-6');
+    const emailSocial = linksSociais.find(s => s.nome.toLowerCase() === 'email');
+    const whatsappSocial = linksSociais.find(s => s.nome.toLowerCase() === 'whatsapp');
+
+    emailContato.innerHTML = `
             <ul class="list-unstyled">
             <li><i class="bi bi-${emailSocial.icone} me-2"></i>Email: ${emailSocial.url}</li>
             <li><i class="bi bi-${whatsappSocial.icone} me-2"></i>WhatsApp: ${whatsappSocial.url.replace(/(\d{2})(\d{2})(\d{1})(\d{4})(\d{4})/, '($1) $2 $3 $4-$5')}</li>
             </ul>
             <div class="contato-separator d-none d-md-block"></div>
         `;
+}
 
-        const listaLinguagens = document.getElementById('lista-linguagens');
-        dados.linguagens.forEach(linguagem => {
-            let nivelWidth = '33%';
-            let nivelClass = 'nivel-basico';
+function preencherLinguagens(linguagens) {
+    const listaLinguagens = document.querySelector('#lista-linguagens');
 
-            switch (linguagem.nivel.toLowerCase()) {
-                case 'básico':
-                    nivelWidth = '33%';
-                    nivelClass = 'nivel-basico';
-                    break;
-                case 'médio':
-                    nivelWidth = '66%';
-                    nivelClass = 'nivel-medio';
-                    break;
-                case 'avançado':
-                    nivelWidth = '100%';
-                    nivelClass = 'nivel-avancado';
-                    break;
-            }
+    linguagens.forEach(linguagem => {
+        let nivelWidth = '33%';
+        let nivelClass = 'nivel-basico';
 
-            const elementoLinguagem = document.createElement('div');
-            elementoLinguagem.className = 'col-md-6 mb-4 fade-in';
-            elementoLinguagem.innerHTML = `
+        switch (linguagem.nivel.toLowerCase()) {
+            case 'básico':
+                nivelWidth = '33%';
+                nivelClass = 'nivel-basico';
+                break;
+            case 'intermediário':
+                nivelWidth = '66%';
+                nivelClass = 'nivel-intermediario';
+                break;
+            case 'avançado':
+                nivelWidth = '100%';
+                nivelClass = 'nivel-avancado';
+                break;
+        }
+
+        const elementoLinguagem = document.createElement('div');
+        elementoLinguagem.className = 'col-md-6 mb-4 fade-in';
+        elementoLinguagem.innerHTML = `
             <div class="card linguagem-card">
             <div class="card-body">
                 <img src="${linguagem.icone}" alt="${linguagem.nome}" class="linguagem-icon">
@@ -96,26 +111,26 @@ async function carregarDadosPerfil() {
             </div>
             </div>
             `;
-            listaLinguagens.appendChild(elementoLinguagem);
-        });
+        listaLinguagens.appendChild(elementoLinguagem);
+    });
+}
 
-        function converterData(dataStr) {
-            const [dia, mes, ano] = dataStr.split('/');
-            return new Date(ano, mes - 1, dia);
-        }
+function converterData(dataStr) {
+    const [dia, mes, ano] = dataStr.split('/');
+    return new Date(ano, mes - 1, dia);
+}
 
+function preencherExperiencias(experiencias) {
+    const listaExperiencias = document.querySelector('#lista-experiencias');
 
-        const listaExperiencias = document.getElementById('lista-experiencias');
-        dados.experiencias
-            .sort((a, b) => {
-                const dataFinalA = converterData(a.periodo.split(' - ')[1]);
-                const dataFinalB = converterData(b.periodo.split(' - ')[1]);
-                return dataFinalB - dataFinalA;
-            })
-            .forEach(experiencia => {
-                const elementoExperiencia = document.createElement('div');
-                elementoExperiencia.className = 'col fade-in';  
-                elementoExperiencia.innerHTML = `
+    experiencias.sort((a,b) => {
+        const dataFinalA = converterData(a.periodo.split(' - ')[1]);
+        const dataFinalB = converterData(b.periodo.split(' - ')[1]);
+        return dataFinalB - dataFinalA;
+    }).forEach(experiencia => {
+        const elementoExperiencia = document.createElement('div');
+        elementoExperiencia.className = 'fade-in';
+        elementoExperiencia.innerHTML = `
             <div class="card experiencia-card">
             <div class="card-body">
                 <h5 class="card-title">${experiencia.cargo}</h5>
@@ -125,44 +140,39 @@ async function carregarDadosPerfil() {
             </div>
             </div>
             `;
-                listaExperiencias.appendChild(elementoExperiencia);
-            });
+        listaExperiencias.appendChild(elementoExperiencia);
+    });
+}
 
-        const listaProjetos =
-            document.getElementById('lista-projetos');
-        const indicadoresProjetos = document.getElementById('indicadores-projetos');
+function preencherProjetos(projetos) {
+    const listaProjetos = document.querySelector('#lista-projetos');
+    const indicadoresProjetos = document.querySelector('#indicadores-projetos');
 
-        dados.projetos.forEach((projeto, index) => {
-            // Criar indicador
-            const indicador = document.createElement('button');
-            indicador.type = 'button';
-            indicador.setAttribute('data-bs-target', '#carrossel-projetos');
-            indicador.setAttribute('data-bs-slide-to', index.toString());
-            if (index === 0) indicador.classList.add('active');
-            indicadoresProjetos.appendChild(indicador);
+    projetos.forEach((projeto, index) => {
+        // Criar indicador
+        const indicador = document.createElement('button');
+        indicador.type = 'button';
+        indicador.setAttribute('data-bs-target', '#carrossel-projetos');
+        indicador.setAttribute('data-bs-slide-to', index.toString());
+        if (index === 0) indicador.classList.add('active');
+        indicadoresProjetos.appendChild(indicador);
 
-            // Criar slide
-            const elementoProjeto = document.createElement('div');
-            elementoProjeto.className = `carousel-item ${index === 0 ? 'active' : ''}`;
-            elementoProjeto.innerHTML = `
-                <div class="card">
-                    <div class="card-body text-center">
-                        <h3 class="card-title mb-4">${projeto.nome}</h3>
-                        <p class="card-text mb-4">${projeto.descricao}</p>
-                        <a href="${projeto.url}" class="btn btn-primary" target="_blank">
-                            <i class="bi bi-eye"></i> Ver Projeto
-                        </a>
-                    </div>
+        // Criar slide
+        const elementoProjeto = document.createElement('div');
+        elementoProjeto.className = `carousel-item ${index === 0 ? 'active' : ''}`;
+        elementoProjeto.innerHTML = `
+            <div class="card">
+                <div class="card-body text-center">
+                    <h3 class="card-title mb-4">${projeto.nome}</h3>
+                    <p class="card-text mb-4">${projeto.descricao}</p>
+                    <a href="${projeto.url}" class="btn btn-primary" target="_blank">
+                        <i class="bi bi-eye"></i> Ver Projeto
+                    </a>
                 </div>
-            `;
-            listaProjetos.appendChild(elementoProjeto);
-        });
-
-        iniciarAnimacoes();
-
-    } catch (erro) {
-        console.error('Erro ao carregar dados do perfil:', erro);
-    }
+            </div>
+        `;
+        listaProjetos.appendChild(elementoProjeto);
+    });
 }
 
 async function digitarTexto(elemento, texto) {
@@ -234,4 +244,3 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', atualizarMenuAtivo);
     ajustarScrollMenu();
 });
-
