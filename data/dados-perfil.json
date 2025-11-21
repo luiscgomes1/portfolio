@@ -62,6 +62,11 @@
             "icone": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg"
         },
         {
+            "nome": "React",
+            "nivel": "Básico",
+            "icone": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+        },
+        {
             "nome": "Django",
             "nivel": "Básico",
             "icone": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg"
@@ -70,6 +75,11 @@
             "nome": "Node.js",
             "nivel": "Básico",
             "icone": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+        },
+        {
+            "nome": "Kotlin",
+            "nivel": "Básico",
+            "icone": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg"
         },
         {
             "nome": "PHP",
@@ -121,6 +131,11 @@
             "nome": "HostXChange",
             "descricao": "Uma aplicação web para a disciplina de Laboratório de Engenharia de Software, com o Professor Mauro Borges, projeto com o intuito de ser um site para gerenciar intercâmbios, sendo serviços em troca de hospedagem e etc. Aplicação feita usando Angular 18, Node.js, Express e MySQL, além de Docker.",
             "url": "https://github.com/luiscgomes1/HostXchange"
+        },
+        {
+            "nome": "SGTU - Sistema de Gerenciamento de Transporte Universitário",
+            "descricao": "Uma aplicação web para as disciplinas de Extensão. Com o intuito de gerenciar o transporte universitário, feito usando React, Node.js, Express e Supabase.",
+            "url": "https://github.com/luiscgomes1/sgtu-projeto"
         }
     ]
 }
